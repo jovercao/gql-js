@@ -4,8 +4,7 @@
 
 ## 特性
 
-- gql客户端
-- gql客户端实例管理工具，通过配置管理
+- 可通过配置管理gql客户端实例 [`graphql.js`](https://github.com/f/graphql.js)
 - 与`@jovercao/gql-loader`配合使用达到可多连接多服务端的效果
 
 ## 使用方法
@@ -26,6 +25,7 @@ gql.init({
             url: 'http://localhost/graphql',
             // 使用JSON格式POST, 默认为true
             asJson: true
+            // ... 更多参数请参考 https://github.com/f/graphql.js
         }
     }
 })
@@ -75,8 +75,10 @@ import gql from 'gql-js'
 
 // 初始化配置
 gql.init({
-    // 默认客户端实例
-    defaults: 'instance1',
+    // 项目的整基础路径（绝对路径）
+    basePath: __dirname + '/src/gql/',
+    // 默认客户端实例,当匹配不到的时候均会使用此路径
+    defaults: 'userInstance',
     clients: {
         userInstance: {
             // 用于查找client的匹配字符串，亦可以使用正则表达式
