@@ -1,4 +1,4 @@
-const gql = require('../index')
+const gql = require('../../')
 const path = require('path')
 
 
@@ -6,7 +6,7 @@ describe('gql-js', function() {
     this.timeout(0)
     it('test', async () => {
         gql.init({
-            defaults: 'gql1',
+            default: 'gql1',
             basePath: path.join(__dirname, 'gql'),
             clients: {
                 gql1: {
